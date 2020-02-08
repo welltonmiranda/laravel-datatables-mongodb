@@ -28,7 +28,7 @@ class MongodbDataTablesServiceProvider extends ServiceProvider
         }
         
         foreach (static::$engines as $engine => $class) {
-            $engine = camel_case($engine);
+            $engine = \Illuminate\Support\Str::camel($engine);
 
             if (!DataTables::hasMacro($engine)) {
                 DataTables::macro($engine, function () use ($class) {
